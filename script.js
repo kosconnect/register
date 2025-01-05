@@ -1,55 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('register-form');
-    
-    form.addEventListener('submit', (event) => {
-      event.preventDefault(); // Mencegah form dari reload halaman
-  
-      const fullName = document.getElementById('full-name').value;
-      const email = document.getElementById('email').value;
-      let whatsapp = document.getElementById('whatsapp').value;
+  const form = document.getElementById('register-form');
+
+  form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Mencegah reload halaman
+      
+      // Ambil nilai input
+      const fullName = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
       const role = document.getElementById('role').value;
       const password = document.getElementById('password').value;
-  
-      // Tambahkan +62 ke nomor WhatsApp yang dimasukkan
-      if (whatsapp && !whatsapp.startsWith('8')) {
-        alert('Nomor WhatsApp harus dimulai dengan angka 8');
-        return;
+
+      // Validasi tambahan jika diperlukan
+      if (password.length < 6) {
+          alert('Kata sandi harus minimal 6 karakter.');
+          return;
       }
-  
-      // Pastikan nomor WhatsApp dimulai dengan +62
-      whatsapp = '+62' + whatsapp;
-  
+
+      // Data yang dikirim ke backend
       const data = {
-        full_name: fullName,
-        email,
-        whatsapp,
-        role,
-        password
+          fullname: fullName,
+          email,
+          role,
+          password
       };
-  
+
+      // Kirim data ke endpoint registrasi
       fetch("https://kosconnect-server.vercel.app/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
       })
       .then(response => {
-        if (!response.ok) {
-          return response.json().then(errorData => {
-            throw new Error(errorData.message || 'Terjadi kesalahan saat pendaftaran.');
-          });
-        }
-        return response.json();
+          if (!response.ok) {
+              return response.json().then(errorData => {
+                  throw new Error(errorData.error || 'Terjadi kesalahan saat mendaftar.');
+              });
+          }
+          return response.json();
       })
       .then(result => {
-        alert('Registrasi berhasil!'); 
-        window.location.href = "https://kosconnect.github.io/login/"; // Redirect ke halaman login setelah registrasi
+          alert('Registrasi berhasil! Anda akan diarahkan ke halaman login.');
+          window.location.href = "https://kosconnect.github.io/login/"; // Redirect ke halaman login
       })
       .catch(error => {
-        alert('Terjadi kesalahan saat mencoba mendaftar.');
-        console.error('Error:', error);
+          alert(`Gagal mendaftar: ${error.message}`);
+          console.error('Error:', error);
       });
-    });
   });
-  
+});

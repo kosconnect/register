@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - KosConnect</title>
-    <link rel="shortcut icon" href="img/logokos.png" type="image/png">
+    <link rel="shortcut icon" href="img/logokos.png" type="image/png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -16,8 +16,11 @@
       rel="stylesheet"
     />
 
-        <!-- FA Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FA Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <link rel="stylesheet" href="register.css" />
   </head>
@@ -29,18 +32,18 @@
       </div>
       <div class="right">
         <h1>Daftar</h1>
-        <form action="/register" method="POST">
+        <form id="register-form" method="POST">
           <div class="cancel-btn-container">
             <a href="https://kosconnect.github.io/" class="cancel-btn">
-                <i class="fa-solid fa-circle-xmark"></i>
-            </a> <!-- Circle X Mark Icon -->
-        </div>
+              <i class="fa-solid fa-circle-xmark"></i>
+            </a>
+          </div>
           <div class="form-group">
-            <label for="full-name">Nama Lengkap</label>
+            <label for="fullname">Nama Lengkap</label>
             <input
               type="text"
-              id="full-name"
-              name="full_name"
+              id="fullname"
+              name="fullname"
               placeholder="Masukkan nama lengkap"
               required
             />
@@ -65,7 +68,7 @@
               required
             />
           </div> -->
-          <div class="form-group whatsapp-group">
+          <!-- <div class="form-group whatsapp-group">
             <label for="whatsapp">Nomor WhatsApp</label>
             <div class="whatsapp-input">
               <span class="prefix">+62</span>
@@ -77,13 +80,13 @@
                 required
               />
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="role">Daftar Sebagai</label>
             <select id="role" name="role" required>
               <option value="">Pilih</option>
-              <option class="dropdown" value="user">User</option>
-              <option class="dropdown" value="owner">Owner</option>
+              <option value="user">User</option>
+              <option value="owner">Owner</option>
             </select>
           </div>
           <div class="form-group">
@@ -97,9 +100,11 @@
             />
           </div>
           <button type="submit" class="btn">Daftar</button>
-
         </form>
-        <div class="footer">Sudah punya akun? <a href="https://kosconnect.github.io/login/">Masuk</a></div>
+        <div class="footer">
+          Sudah punya akun?
+          <a href="https://kosconnect.github.io/login/">Masuk</a>
+        </div>
       </div>
     </div>
 
