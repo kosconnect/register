@@ -13,8 +13,38 @@ body {
     height: 100vh;
     color: #fff;
 }
+/* Cancel Button */
+.cancel-btn-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10; /* Supaya di atas elemen lain */
+}
+
+.cancel-btn {
+    font-size: 24px;
+    color: #005f73;
+    text-decoration: none;
+}
+
+.cancel-btn:hover {
+    color: #003f53;
+}
+
+/* Container Styling */
+.container {
+    position: relative; /* Supaya elemen absolut di dalam container mengikuti posisinya */
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+}
 
 .container {
+    position: relative;
     display: flex;
     background: #fff;
     border-radius: 10px;
@@ -172,43 +202,53 @@ body {
 }
 
 /* Mengubah warna hover untuk opsi dropdown */
-/* .form-group select {
+.form-group select {
     background-color: #fff;
     color: #333;
     cursor: pointer;
-} */
+    column-rule-color: #20B2AA;
+}
 
 /* Ubah border saat hover */
-/* .form-group select:hover {
+.form-group select:hover {
     border: 2px solid #003f53;
-} */
+}
 
 /* Warna opsi saat dipilih (saat select terbuka) */
-/* .form-group select option {
+.form-group select option {
     background: #fff;
     color: #333;
-} */
+}
 
 /* Fokus saat opsi dipilih (warna aktif) */
-/* .form-group select:focus option:checked {
-    background-color: #003f53;
+.form-group select:focus option:checked {
+    background-color: #D5B561  ;
     color: #fff;
-} */
+}
 
-.cancel-btn-container {
+
+/* Password Visibility Toggle */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-container input {
+    width: 100%;
+    padding-right: 40px; /* Ruang untuk ikon mata */
+  }
+  
+  .password-container .toggle-password {
     position: absolute;
-    top: -50px;
-    right: -30px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #005f73;
   }
   
-  .cancel-btn {
-    font-size: 24px;
-    color: #005f73 ;
-    text-decoration: none;
-  }
-  
-  .cancel-btn:hover {
-    color: #003f53 ;
+  .password-container .toggle-password:hover {
+    color: #003f53;
   }
 
   form {

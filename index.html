@@ -26,18 +26,18 @@
   </head>
   <body>
     <div class="container">
+      <div class="cancel-btn-container">
+        <a href="https://kosconnect.github.io/" class="cancel-btn">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </a>
+      </div>
       <div class="left">
         <h1>KosConnect</h1>
         <img src="img/registrasi.png" alt="Welcome Image" />
       </div>
       <div class="right">
         <h1>Daftar</h1>
-        <form id="register-form" method="POST">
-          <div class="cancel-btn-container">
-            <a href="https://kosconnect.github.io/" class="cancel-btn">
-              <i class="fa-solid fa-circle-xmark"></i>
-            </a>
-          </div>
+        <form id="register-form" method="POST">  
           <div class="form-group">
             <label for="fullname">Nama Lengkap</label>
             <input
@@ -81,33 +81,42 @@
               />
             </div>
           </div> -->
+
           <div class="form-group">
             <label for="role">Daftar Sebagai</label>
-            <select id="role" name="role" required>
-              <option value="">Pilih</option>
-              <option value="user">User</option>
-              <option value="owner">Owner</option>
+            <select class="select" id="role" name="role" required>
+              <option class="option" value="">Pilih</option>
+              <option class="option" value="user">Pencari Kos</option>
+              <option class="option" value="owner">Pemilik Kos</option>
             </select>
           </div>
+
           <div class="form-group">
             <label for="password">Kata Sandi</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Masukkan kata sandi"
-              required
-            />
+            <div class="password-container">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Masukkan kata sandi"
+                required
+              />
+              <i class="fa-solid fa-eye toggle-password"></i>
+            </div>
           </div>
           <button type="submit" class="btn">Daftar</button>
           <div class="line-container">
-            <hr>
+            <hr />
             <span>atau</span>
-            <hr>
+            <hr />
           </div>
           <!-- Tombol Sign In dengan Google -->
-          <button type="button" class="btn-google" onclick="handleGoogleSignIn()">
-            <img src="img/logo_google.png" alt=""> Daftar dengan Google
+          <button
+            type="button"
+            class="btn-google"
+            onclick="handleGoogleSignIn()"
+          >
+            <img src="img/logo_google.png" alt="" /> Daftar dengan Google
           </button>
         </form>
         <div class="footer">
